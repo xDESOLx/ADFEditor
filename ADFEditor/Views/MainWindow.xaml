@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:Converters="clr-namespace:ADFEditor.Converters" 
+        xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors" x:Name="window" x:Class="ADFEditor.Views.MainWindow"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="480" Width="640" syncfusionskin:SfSkinManager.VisualStyle="Office365">
+    <Window.Resources>
+        <Converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Command="{Binding NewPackageCommand}"/>
+                <MenuItem Header="Open..." Command="{Binding OpenPackageCommand}"/>
+                <MenuItem Header="Save" Command="{Binding SavePackageCommand}"/>
+                <MenuItem Header="Save as..." Command="{Binding SavePackageAsCommand}"/>
+                <Separator/>
+                <MenuItem Header="Quit">
+                    <Behaviors:Interaction.Triggers>
+                        <Behaviors:EventTrigger EventName="Click">
+                            <Behaviors:CallMethodAction TargetObject="{Binding ElementName=window}" MethodName="Close"/>
+                        </Behaviors:EventTrigger>
+                    </Behaviors:Interaction.Triggers>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Package">
+                <MenuItem Header="Add file(s)..." Command="{Binding AddFilesCommand}"/>
+                <MenuItem Header="Extract selected file(s)..." Command="{Binding ExtractFilesCommand}"/>
+                <MenuItem Header="Replace selected file..." Command="{Binding ReplaceFileCommand}"/>
+                <MenuItem Header="Remove selected file(s)" Command="{Binding RemoveFilesCommand}"/>
+            </MenuItem>
+        </Menu>
+        <syncfusion:SfDataGrid x:Name="sfDataGrid" Grid.Row="1" ItemsSource="{Binding Files}" AutoGenerateColumns="False" ColumnSizer="AutoWithLastColumnFill" SelectionMode="Extended" SelectedItems="{Binding SelectedFiles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" AllowDeleting="True">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn MappingName="FileName" HeaderText="Filename" AllowFiltering="True"/>
+                <syncfusion:GridNumericColumn MappingName="Size" HeaderText="Size in bytes" NumberDecimalDigits="0"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+        <syncfusion:SfBusyIndicator Grid.RowSpan="2" AnimationType="Gear" IsBusy="{Binding IsBusy}"/>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADFEditor", "ADFEditor\ADFEditor.csproj", "{F1D79CDF-BC06-4BDA-9ED7-4663C7E23125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ookii.Dialogs.Wpf", "Ookii.Dialogs.Wpf\Ookii.Dialogs.Wpf.csproj", "{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1D79CDF-BC06-4BDA-9ED7-4663C7E23125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D79CDF-BC06-4BDA-9ED7-4663C7E23125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D79CDF-BC06-4BDA-9ED7-4663C7E23125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D79CDF-BC06-4BDA-9ED7-4663C7E23125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01B1D20-8F5B-4834-8E5C-C7EC6DD587D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84457C7F-B5CA-4B67-A009-EE7E08065327}
+	EndGlobalSection
+EndGlobal
